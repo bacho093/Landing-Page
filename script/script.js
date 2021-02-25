@@ -100,9 +100,9 @@ let tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".saving",
         start: "top center",
-        end: "+=400",
+        end: "+=500",
         scrub: 1,
-        pin: true,
+        pin: true
     }
 });
 
@@ -117,9 +117,60 @@ tl.to('.saving', {
     yPercent: 0
 },
 {
-    scale: 0.8,
+    scale: 0.85,
     yPercent: -54
 })
 .to('.wallet', {
     rotationX: 720
 })
+
+let al = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".alpine",
+        start: "top center",
+        end: "+=800",
+        toggleClass: 'active'
+    }
+});
+
+
+let mt = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".main",
+        start: "center center",
+    }
+})
+
+mt.fromTo('.mainTxt', {
+    xPercent: 0,
+    opacity: 0
+},
+{
+    xPercent: 10,
+    opacity: 1
+})
+
+
+// OFFER 
+
+var content = document.querySelector('.content').children;
+var imgs = document.querySelector('.imgs').children;
+let index = 0;
+
+function autoPlay() {
+    if(index == content.length - 1) {
+        index = 0;
+    }
+    else {
+        index++;
+    }
+
+    for(let i = 0; i < content.length; i++) {
+        content[i].classList.remove('active');
+        content[index].classList.add('active');
+
+        imgs[i].classList.remove('active');
+        imgs[index].classList.add('active');
+    }
+}
+var timer = setInterval(autoPlay, 3000);
