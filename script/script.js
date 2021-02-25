@@ -174,3 +174,11 @@ function autoPlay() {
     }
 }
 var timer = setInterval(autoPlay, 3000);
+
+
+// SCROLL TO TOP 
+const gotop = document.querySelector('.gotop');
+
+gotop.addEventListener('click', function() {
+    window.scrollTo(0,0);
+});
