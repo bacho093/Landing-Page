@@ -1,6 +1,5 @@
 body {
     overflow-x: hidden;
-    height: 200vh;
 }
 a {
     color: inherit;
@@ -47,19 +46,27 @@ a:hover {
 
 /* topMain  */
 .topMain {
-    height: 90vh;
+    min-height: 70vh;
 }
 .topMain h1 {
     color: rgb(92, 92, 92);
     padding-top: 15vh;
     animation: maintxt 1.2s ease forwards;
 }
+
 .LOREM {
     font-size: 11px;
     width: 40%;
     animation: maintxt 1.5s ease forwards;
 }
-
+@media screen and (max-width: 770px) {
+    .topMain h1 {
+        width: 100%!important;
+    }
+    .LOREM {
+        width: 100%;
+    }
+}
 @keyframes maintxt {
     0% {
         transform: translateX(-100%);
@@ -168,10 +175,20 @@ a:hover {
     width: 330px;
     min-height: 530px;
     border-radius: 20px;
-    right: 0;
+    right: 5%;
     bottom: 0;
     box-shadow: 10px 10px 25px #c6c7c9;
     z-index: 1000;
+}
+@media screen and (max-width: 770px) {
+    .saving {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        padding: 20px 0;
+        left: 0;
+        right: 0;
+    }
 }
 .saving h4 {
     color: #4b4341;
@@ -242,11 +259,26 @@ a:hover {
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
 }
-
+@media screen and (max-width: 770px){
+    .alpine.active {
+        animation: unset;
+    }
+}
 /* SECTION MAIN */
 .main {
     position: relative;
     min-height: 100vh;
+}
+@media screen and (max-width: 770px) {
+    .main {
+        min-height: 75vh;
+    }
+    .mainTxt {
+        width: 100%!important;
+    }
+    .mainTxt p {
+        width: 80%!important;
+    }
 }
 .main::after {
     content: '';
@@ -263,6 +295,7 @@ a:hover {
 }
 .mainTxt {
     position: absolute;
+    padding-left: 10%;
 }
 .mainTxt h1 {
     color: #661aa0;
@@ -275,6 +308,12 @@ a:hover {
 .offer {
     margin-top: 10vh;
     min-height: 90vh;
+}
+@media screen and (max-width: 770px) {
+    .offer .content {
+        width: 100%!important;
+        margin: auto;
+    }
 }
 .offer h2 {
     color: #533769;
@@ -305,8 +344,8 @@ a:hover {
                 -5px -5px 15px #ddd;
 }
 .imgs .img {
-    width: 420px;
-    height: 220px;
+    max-width: 420px;
+    max-height: 220px;
 }
 .imgs .img img {
     width: 100%;
@@ -352,7 +391,20 @@ a:hover {
     border-radius: 25px;
     z-index: -1;
 }
-
+@media screen and (max-width: 770px) {
+    .imgs .img {
+        margin: 30px 0 90px 0;
+        max-width: 350px;
+        height: 300px;
+    }
+    .imgs .img img {
+        animation: unset;
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    .imgs .img::after {
+        display: none;
+    }
+}
 /* FOOTER */
 footer {
     min-height: 5vh;

@@ -9,11 +9,14 @@ portfolio.addEventListener('mouseout', function() {
 
 
 // SAVING 
-const saving = document.querySelector('.saving');
-const head = document.querySelector('.saving .head');
+if(document.body.clientWidth >= 770) {
+    const saving = document.querySelector('.saving');
+    const head = document.querySelector('.saving .head');
+    
+    var position = saving.clientHeight - head.clientHeight;
+    saving.style.transform = `translateY(${position}px)`;
+}
 
-var position = saving.clientHeight - head.clientHeight;
-saving.style.transform = `translateY(${position}px)`;
 
 
 // SAVING BUTTON 
@@ -78,75 +81,73 @@ nv.to('.logo', {
 })
 .to('.spans span:nth-child(2)', {
     opacity: 0,
-    xPercent: 100,
+    xPercent: 10,
     duration: 2,
     delay: 1
 })
 .to('.spans span:nth-child(3)', {
     opacity: 0,
-    xPercent: -100,
+    xPercent: -10,
     duration: 2,
     delay: 2
-})
-.to('.spans span:nth-child(4)', {
-    opacity: 0,
-    yPercent: 100,
-    duration: 2,
-    delay: 2
-})
-
-
-let tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".saving",
-        start: "top center",
-        end: "+=500",
-        scrub: 1,
-        pin: true
-    }
 });
 
-tl.to('.saving', {
-    skewX: -15,
-    skewY: 15,
-    repeat: 1,
-    yoyo: true
-})
-.fromTo('.saving', {
-    scale: 1,
-    yPercent: 0
-},
-{
-    scale: 0.85,
-    yPercent: -54
-})
-.to('.wallet', {
-    rotationX: 720
-})
 
-let al = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".alpine",
-        start: "top center",
-        end: "+=800",
-        toggleClass: 'active'
-    }
-});
+if(document.body.clientWidth >= 770) {
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".saving",
+            start: "top center",
+            end: "+=500",
+            scrub: 1,
+            pin: true
+        }
+    });
+    
+    tl.to('.saving', {
+        skewX: -15,
+        skewY: 15,
+        repeat: 1,
+        yoyo: true
+    })
+    .fromTo('.saving', {
+        scale: 1,
+        yPercent: 0
+    },
+    {
+        scale: 0.85,
+        yPercent: -54
+    })
+    .to('.wallet', {
+        rotationX: 720
+    })
+}
+
+if(document.body.clientWidth >= 700) {
+    let al = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".alpine",
+            start: "top center",
+            end: "+=800",
+            toggleClass: 'active'
+        }
+    });
+}
 
 
 let mt = gsap.timeline({
     scrollTrigger: {
         trigger: ".main",
-        start: "center center",
+        start: "top center",
     }
 })
 
 mt.fromTo('.mainTxt', {
-    xPercent: 0,
+    xPercent: -10,
     opacity: 0
 },
 {
-    xPercent: 10,
+    xPercent: 0,
     opacity: 1
 })
 
